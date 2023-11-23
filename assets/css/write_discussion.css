@@ -1,0 +1,61 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}
+
+form {
+    margin: 0 auto;
+    width: 500px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+/* Empêche le redimensionnement du textarea */
+textarea {
+    resize: none;
+    display: flex;
+    justify-content: center;
+}
+
+/* Diminue la largeur du bouton submit */
+input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 10px;
+    width: 150px;
+}
+
+input[type="submit"]:hover {
+    background-color: #333;
+}
+
+/* Ajout d'un bouton back to home */
+.back-to-home {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+}
+
+.back-to-home a {
+    color: #000;
+    text-decoration: none;
+}

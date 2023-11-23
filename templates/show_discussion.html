@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/show_discussion.css">
+    <title>Discussion Details</title>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            var filterElement = document.querySelector('#filter');
+            if (!filterElement || filterElement.textContent.trim() === "") {
+                filterElement.style.display = 'none';
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Discussion Details</h1>
+
+    <p><strong>Username:</strong> {{.Username}}</p>
+    <p><strong>Title:</strong> {{.Title}}</p>
+    <div class="imagee">
+        <img src="data:image/png;base64,{{.Image}}" alt="Discussion Image">
+
+    </div>
+
+    
+    <div class="message">
+        <p><strong>Message:</strong> {{.Message}}</p>
+    </div>
+    <p id="filter"><strong>Categories :</strong> {{ .Filter}}</p>
+
+
+    <!-- discussion.html -->
+    <div id="messages">
+        <!-- Les messages seront affichés ici -->
+        {{range .Comments}}
+        <img src="data:image/png;base64,{{.Image}}" alt="Discussion Image">
+
+        <div class="message">
+            <p><strong>{{.Username}}</strong></p>
+
+            <p>{{.Message}}</p>
+
+
+
+            
+
+            <!-- Bouton like pour aimer les commentaires -->
+            <form action="" method="post">
+                <input type="checkbox" name="like" value="" disabled>
+                <input type="submit" value="Like">
+            </form>
+
+        </div>
+        {{end}}
+    </div>
+
+
+    <h2>Add a Comment</h2>
+    <form action="/add_message/{{.ID}}" method="POST">
+        <textarea name="message" rows="4" cols="50"></textarea>
+        <br>
+        <input type="submit" value="Add Comment">
+    </form>
+
+    <div class="back-to-home">
+        <a href="/">Back to Home</a>
+    </div>
+
+</body>
+
+</html>

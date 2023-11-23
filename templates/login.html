@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/sign_up.css">
+    <link rel="stylesheet" href="/static/css/errormessage.css">
+    <link rel="stylesheet" href="/static/css/bootstrap-social.css">
+    <link rel="stylesheet" href="/static/css/docs.css">
+    <link rel="stylesheet" href="/static/css/font-awesome.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- load bulma css -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- load fontawesome -->
+    
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire login</title>
+</head>
+
+<body>
+    <header>
+        <a href="/">Forum</a>
+        <a href="/logorsign">Log / Sign</a>
+    </header>
+    <div class="container">
+        <h2>log-in</h2>
+        {{if .Error}}
+        <p class="error-message">{{.Error}}</p>
+        {{end}}
+        <form method="post" action="/log_in">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="loginemail" name="loginemail" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="loginpassword" name="loginpassword" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Send</button>
+            </div>
+
+            {{if .Errors}}
+            <div class="error-message">
+
+                {{range .Errors}}
+                <p>{{.}}</p>
+                {{end}}
+            </div>
+            {{end}}
+
+            <a href="/login/facebook" class="btn btn-block btn-social btn-facebook">
+                <span class="fa fa-facebook"></span> Sign in with Facebook
+            </a>
+
+            <a href="/login/github" class="btn btn-block btn-social btn-github">
+                <span class="fa fa-github"></span> Sign in with Github
+            </a>
+
+    </div>
+</body>
+
+</html>

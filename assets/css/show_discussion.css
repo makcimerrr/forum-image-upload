@@ -1,0 +1,113 @@
+/* Reset some default browser styles */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and font for the entire page */
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Style the header */
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style the user details section */
+p {
+    margin-bottom: 10px;
+}
+
+.imagee {
+    width: 150px;
+    height: 150px;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the message container */
+#messages {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* Style individual messages */
+.message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Style the "Add a Comment" section */
+h2 {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #3498db;
+}
+
+/* Ajout d'un bouton back to home */
+.back-to-home {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+}
+
+.back-to-home a {
+    color: #000;
+    text-decoration: none;
+}
+
+.back-to-home a:hover {
+    text-decoration: underline;
+}
+
+/* Style the message content for better visibility */
+.message strong {
+    font-weight: bold;
+    color: #007bff; /* Change the color to a blue shade */
+    display: block; /* Move "Message:" to a new line */
+    margin-bottom: 5px; /* Add some space below "Message:" */
+}
+
+.message p {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Add a light gray background color */
+    margin-top: 5px; /* Add some space above the message content */
+    margin-bottom: 0; /* Remove the default bottom margin */
+}

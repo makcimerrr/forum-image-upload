@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/home.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+</head>
+
+<body>
+    <header>
+        <a href="/">Forum</a>
+        {{if .Username}}
+        <a>Welcome {{.Username}}</a>
+        <a href="/logout">Logout</a>
+        {{else}}
+        <a>You're not connected</a>
+        <a href="/logorsign">Log or Sign</a>
+        {{end}}
+
+    </header>
+
+    <main>
+        
+        <h1>Discussions</h1>
+
+        <a href="/create_discussion" class="boutonaddpost">Add a Post </a> <!-- Bouton pour écrire une discussion -->
+
+        <form action="/home" method="GET">
+            <label for="category">Category:</label>
+            <select id="category" name="category">
+                <option value="">All Categories</option>
+                <option value="sport">Sport</option>
+                <option value="cuisine">Cuisine</option>
+                <option value="voyage">Voyage</option>
+                <!-- Ajoutez d'autres options de catégorie ici -->
+            </select><br>
+            <input type="submit" value="Filter">
+        </form>
+
+        <div class="discussion-list">
+            <!-- Boucle pour afficher les discussions avec des liens -->
+
+            {{range .Discussions}}
+            <a href="/discussion/{{.ID}}">
+                <div class="discussion">
+                    <h2>Discussion créée par {{.Username}}</h2>
+                    <p><strong>Titre :</strong> {{.Title}}</p>
+                    <p><strong>Catégorie :</strong> {{.Category}}</p>
+
+
+
+                    
+            </a>
+            <!-- Ajoutez un formulaire pour la case à cocher -->
+            <form action="/like/{{.ID}}" method="post">
+                <input type="checkbox" name="like" value="{{.ID}}" {{if .Liked}}checked{{end}} disabled>
+                <input type="submit" value="Like">
+                <p><strong>👍</strong> {{.NumberLike}}</p>
+            </form>
+
+            <form action="/dislike/{{.ID}}" method="post">
+                <input type="checkbox" name="dislike" value="{{.ID}}" {{if .Disliked}}checked{{end}} disabled>
+                <input type="submit" value="Dislike">
+                <p><strong>👎</strong> {{.NumberDislike}}</p>
+            </form>
+        </div>
+        {{end}}
+    </main>
+</body>
+
+</html>

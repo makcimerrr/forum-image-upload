@@ -1,0 +1,211 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #202020;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    color: #fff;
+    animation: glitch 2s infinite;
+}
+
+p {
+    font-size: 24px;
+    color: #ddd;
+}
+
+.animated {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes glitch {
+    0% {
+        transform: none;
+    }
+    2% {
+        transform: skew(0.5deg, -0.9deg);
+    }
+    4% {
+        transform: skew(0.8deg, 0.1deg);
+    }
+    6% {
+        transform: skew(-1deg, 0.3deg);
+    }
+    8% {
+        transform: skew(0.4deg, 0.1deg);
+    }
+    10% {
+        transform: skew(-0.3deg, -0.4deg);
+    }
+    12% {
+        transform: skew(0.1deg, 0.3deg);
+    }
+    14% {
+        transform: skew(0.3deg, -0.3deg);
+    }
+    16% {
+        transform: skew(-0.1deg, 0.5deg);
+    }
+    18% {
+        transform: skew(0.3deg, 0.1deg);
+    }
+    20% {
+        transform: skew(-0.7deg, 0.1deg);
+    }
+    22% {
+        transform: skew(0.6deg, 0.3deg);
+    }
+    24% {
+        transform: skew(-0.3deg, -0.2deg);
+    }
+    26% {
+        transform: skew(-0.4deg, 0.8deg);
+    }
+    28% {
+        transform: skew(-0.4deg, -0.6deg);
+    }
+    30% {
+        transform: skew(0.3deg, 0.2deg);
+    }
+    32% {
+        transform: skew(-0.1deg, -0.1deg);
+    }
+    34% {
+        transform: skew(0.4deg, 0.3deg);
+    }
+    36% {
+        transform: skew(0.3deg, -0.1deg);
+    }
+    38% {
+        transform: skew(-0.1deg, -0.4deg);
+    }
+    40% {
+        transform: skew(0.4deg, 0.1deg);
+    }
+    42% {
+        transform: skew(0.2deg, 0.3deg);
+    }
+    44% {
+        transform: skew(-0.3deg, -0.2deg);
+    }
+    46% {
+        transform: skew(0.1deg, 0.7deg);
+    }
+    48% {
+        transform: skew(-0.4deg, 0.5deg);
+    }
+    50% {
+        transform: skew(0.6deg, -0.4deg);
+    }
+    52% {
+        transform: skew(-0.2deg, 0.2deg);
+    }
+    54% {
+        transform: skew(0.1deg, -0.2deg);
+    }
+    56% {
+        transform: skew(-0.3deg, -0.1deg);
+    }
+    58% {
+        transform: skew(0.2deg, -0.3deg);
+    }
+    60% {
+        transform: skew(-0.1deg, 0.6deg);
+    }
+    62% {
+        transform: skew(0.4deg, -0.6deg);
+    }
+    64% {
+        transform: skew(-0.3deg, -0.2deg);
+    }
+    66% {
+        transform: skew(-0.4deg, 0.5deg);
+    }
+    68% {
+        transform: skew(-0.4deg, 0.4deg);
+    }
+    70% {
+        transform: skew(0.4deg, -0.1deg);
+    }
+    72% {
+        transform: skew(0.2deg, -0.2deg);
+    }
+    74% {
+        transform: skew(-0.3deg, 0.6deg);
+    }
+    76% {
+        transform: skew(0.1deg, 0.3deg);
+    }
+    78% {
+        transform: skew(-0.2deg, -0.1deg);
+    }
+    80% {
+        transform: skew(-0.2deg, 0.4deg);
+    }
+    82% {
+        transform: skew(-0.1deg, 0.1deg);
+    }
+    84% {
+        transform: skew(0.4deg, 0.2deg);
+    }
+    86% {
+        transform: skew(-0.1deg, -0.3deg);
+    }
+    88% {
+        transform: skew(0.1deg, 0.6deg);
+    }
+    90% {
+        transform: skew(-0.2deg, 0.2deg);
+    }
+    92% {
+        transform: skew(-0.1deg, -0.5deg);
+    }
+    94% {
+        transform: skew(-0.3deg, 0.1deg);
+    }
+    96% {
+        transform: skew(0.3deg, 0.4deg);
+    }
+    98% {
+        transform: skew(-0.1deg, -0.1deg);
+    }
+    100% {
+        transform: none;
+    }
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #ff5252;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff1744;
+}

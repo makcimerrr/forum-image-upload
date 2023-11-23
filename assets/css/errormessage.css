@@ -1,0 +1,16 @@
+.error-message {
+    background-color: #ff6b6b;
+    /* Couleur de fond */
+    color: #fff;
+    /* Couleur du texte */
+    padding: 10px;
+    /* Espacement intérieur */
+    border-radius: 4px;
+    /* Coins arrondis */
+    margin-bottom: 10px;
+    /* Marge inférieure */
+    text-align: center;
+    /* Centrez le texte */
+    font-weight: bold;
+    /* Texte en gras */
+}

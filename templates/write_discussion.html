@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/write_discussion.css">
+    <title>Write a Discussion</title>
+    <title>Créer une discussion</title>
+</head>
+<body>
+    <h1>Write a Discussion</h1>
+    <form action="/create_discussion" method="post" enctype="multipart/form-data">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br>
+    
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea><br>
+    
+        <label for="category">Category:</label>
+        <select id="category" name="category">
+            <option value="sport">Sport</option>
+            <option value="cuisine">Cuisine</option>
+            <option value="voyage">Voyage</option>
+            <!-- Ajoutez d'autres options de catégorie ici -->
+        </select>
+    
+        <div class="back-to-home">
+            <a href="/">Back to Home</a>
+        </div>
+    
+        <!-- ... other form fields ... -->
+    
+        <input type="file" id="file-input" name="file" accept=".jpeg, .png, .gif">
+        <br>
+        <input type="submit" value="Create Discussion">
+    </form>
+    
+    {{if .Errors}}
+            <div class="error-message">
+
+                {{range .Errors}}
+                <p>{{.}}</p>
+                {{end}}
+            </div>
+            {{end}}
+    
+</body>
+</html>

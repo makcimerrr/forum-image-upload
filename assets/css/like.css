@@ -1,0 +1,40 @@
+
+/* Style the heart-shaped checkbox */
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    width: 30px;
+    /* Increase the width */
+    height: 30px;
+    /* Increase the height */
+    border: 2px solid #777777;
+    position: relative;
+    border-radius: 50%;
+    cursor: not-allowed;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #ff0000;
+    border: 2px solid #ff0000;
+}
+
+input[type="checkbox"]:before {
+    content: "\2661";
+    /* Unicode character for an outline heart */
+    font-size: 24px;
+    /* Adjust the size as needed */
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000000;
+}
+
+input[type="checkbox"]:checked:before {
+    content: "\2665";
+    /* Unicode character for a filled heart */
+    color: #fff;
+}
