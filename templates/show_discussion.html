@@ -26,10 +26,14 @@
     </div>
     <p id="filter"><strong>Categories :</strong> {{ .Filter}}</p>
 
+    {{if .Image}}
     <div class="imagee">
+    
         <img src="data:image/png;base64,{{.Image}}" alt="Discussion Image" style="width: 500px;height: 280px;">
     
     </div>
+
+    {{end}}
 
 
     <!-- discussion.html -->

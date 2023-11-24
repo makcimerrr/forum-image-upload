@@ -31,20 +31,33 @@ func CreateDiscussion(w http.ResponseWriter, r *http.Request) {
 
 		const maxFileSize = 20 << 20 // 20 MB en octets
 		file, fileHeader, err := r.FormFile("file")
+		var imageBuffer bytes.Buffer
 
-		if err != nil {
-			fmt.Println("Erreur lors de la récupération du fichier :", err)
-			http.Error(w, "Internal Server Error: Erreur lors de la récupération du fichier", http.StatusInternalServerError)
-			return
-		}
-		defer file.Close()
+		if file != nil {
+			fmt.Println("test nil ")
 
-		// Vérification de la taille du fichier
-		if fileHeader.Size > maxFileSize {
-			formError = append(formError, "Fichier trop volumineux. La taille maximale autorisée est de 20 MB.")
-			http.Error(w, "Fichier trop volumineux. La taille maximale autorisée est de 20 MB.", http.StatusBadRequest)
-			return
+			if err != nil {
+				fmt.Println("Erreur lors de la récupération du fichier :", err)
+				http.Error(w, "Internal Server Error: Erreur lors de la récupération du fichier", http.StatusInternalServerError)
+				return
+			}
+			defer file.Close()
+
+			// Vérification de la taille du fichier
+			if fileHeader.Size > maxFileSize {
+				formError = append(formError, "Fichier trop volumineux. La taille maximale autorisée est de 20 MB.")
+				http.Error(w, "Fichier trop volumineux. La taille maximale autorisée est de 20 MB.", http.StatusBadRequest)
+				return
+			}
+
+			_, err = io.Copy(&imageBuffer, file)
+			if err != nil {
+				http.Error(w, "Internal Server Error: Lecture du fichier", http.StatusInternalServerError)
+				fmt.Println("Erreur lors de la lecture du fichier :", err)
+				return
+			}
 		}
+		fmt.Println("test apres nil ")
 
 		// Obtenez le nom d'utilisateur à partir du cookie "username"
 		usernameCookie, err := r.Cookie("username")
@@ -70,15 +83,6 @@ func CreateDiscussion(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		defer stmt.Close()
-
-		// Lire le contenu du fichier dans un tableau de bytes
-		var imageBuffer bytes.Buffer
-		_, err = io.Copy(&imageBuffer, file)
-		if err != nil {
-			http.Error(w, "Internal Server Error: Lecture du fichier", http.StatusInternalServerError)
-			fmt.Println("Erreur lors de la lecture du fichier :", err)
-			return
-		}
 
 		_, err = stmt.Exec(username, title, message, category, imageBuffer.Bytes())
 		if err != nil {
