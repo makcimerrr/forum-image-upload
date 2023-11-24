@@ -20,20 +20,21 @@
 
     <p><strong>Username:</strong> {{.Username}}</p>
     <p><strong>Title:</strong> {{.Title}}</p>
-    <div class="imagee">
-        <img src="data:image/png;base64,{{.Image}}" alt="Discussion Image">
-
-    </div>
-
     
     <div class="message">
         <p><strong>Message:</strong> {{.Message}}</p>
     </div>
     <p id="filter"><strong>Categories :</strong> {{ .Filter}}</p>
 
+    <div class="imagee">
+        <img src="data:image/png;base64,{{.Image}}" alt="Discussion Image" style="width: 500px;height: 280px;">
+    
+    </div>
+
 
     <!-- discussion.html -->
     <div id="messages">
+        
         <!-- Les messages seront affichés ici -->
         {{range .Comments}}
         <img src="data:image/png;base64,{{.Image}}" alt="Discussion Image">
@@ -43,7 +44,7 @@
 
             <p>{{.Message}}</p>
 
-
+            
 
             
 

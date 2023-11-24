@@ -24,10 +24,8 @@ p {
 }
 
 .imagee {
-    width: 150px;
-    height: 150px;
-    padding: 0;
-    margin: 0;
+   padding: 3%;
+
 }
 
 /* Style the message container */
